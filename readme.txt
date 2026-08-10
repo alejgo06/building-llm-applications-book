@@ -1,4 +1,3 @@
-cd env
 .venv\Scripts\activate
 
 repo libro https://github.com/roberto-inf/building-llm-applications
