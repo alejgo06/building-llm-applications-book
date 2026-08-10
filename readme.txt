@@ -9,4 +9,3 @@ texto
 https://learning.oreilly.com/library/view/ai-agents-and/9781633436541/Text/chapter-4.html
 
 
-punto chapter 4.5  minuto 12:08
