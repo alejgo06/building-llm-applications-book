@@ -1,0 +1,25 @@
+from llm_models import get_llm
+from utilities import to_obj
+from prompts import (
+    ASSISTANT_SELECTION_PROMPT_TEMPLATE, 
+)
+from langchain_core.runnables import RunnablePassthrough
+from langchain_core.output_parsers import StrOutputParser
+
+#assistant_instructions_chain = (
+#    {'user_question': RunnablePassthrough()} 
+#    | ASSISTANT_SELECTION_PROMPT_TEMPLATE 
+#    | get_llm() | StrOutputParser() | to_obj
+#)
+
+from langchain_core.runnables import RunnableLambda
+assistant_instructions_chain = (
+    {'user_question': RunnablePassthrough()}
+    | RunnablePassthrough.assign(
+        assistant_selection=ASSISTANT_SELECTION_PROMPT_TEMPLATE
+        | get_llm()
+        | StrOutputParser()
+        | to_obj
+      )
+    | RunnableLambda(lambda x: {**x['assistant_selection'], 'user_question': x['user_question']})
+)
