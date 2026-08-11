@@ -7,7 +7,7 @@ load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
 
-from llm_models import get_llm
+
 
 #def get_llm():
 #    return ChatOpenAI(openai_api_key=openai_api_key,

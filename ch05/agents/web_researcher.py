@@ -1,4 +1,5 @@
-from models import get_llm, SearchQuery, SearchResult, SearchSummary
+from models import SearchQuery, SearchResult, SearchSummary
+from llm_models import get_llm
 from prompts import WEB_SEARCH_PROMPT_TEMPLATE, SUMMARY_PROMPT_TEMPLATE
 from utils.web_searching import web_search
 from utils.web_scraping import web_scrape
