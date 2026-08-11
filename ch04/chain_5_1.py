@@ -32,3 +32,4 @@ web_research_chain = (
         })
     | RESEARCH_REPORT_PROMPT_TEMPLATE | get_llm() | StrOutputParser()
 )
+
