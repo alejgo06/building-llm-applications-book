@@ -1,5 +1,6 @@
+uv sync
 .venv\Scripts\activate
-
+uv run .\chain_try_5_1.py
 repo libro https://github.com/roberto-inf/building-llm-applications
 
 
