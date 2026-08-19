@@ -5,6 +5,10 @@ from llm_models import get_llm
 from langchain_core.runnables import RunnablePassthrough
 import argparse
 
+def execute_chain(chain, question):
+    answer = chain.invoke(question)
+    return answer
+
 def main():
     parser = argparse.ArgumentParser(
         description="Consulta la openai_client vectorial y responde con un LLM."
@@ -51,10 +55,10 @@ def main():
     rag_chain = {"context":retriever, 
              "question": RunnablePassthrough()}|rag_prompt|llm
 
-
-    answer = rag_chain.invoke(args.question)
-    print(answer.content)
-
+    #answer = rag_chain.invoke(args.question)
+    
+    answer=execute_chain(rag_chain, args.question)
+    print(answer.content)    
  
  
 if __name__ == "__main__":
